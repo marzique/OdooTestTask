@@ -1,0 +1,4 @@
+letters = {}
+pairs = {}
+triples = {}
+
