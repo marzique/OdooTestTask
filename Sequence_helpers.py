@@ -1,21 +1,7 @@
-import random
-import string
-
 # dicts to limit combinations
 letters = {}
 pairs = {}
 triples = {}
-
-# get random 3 lowercase letters as a string
-def random_triple():
-    return ''.join(random.choice(string.ascii_lowercase) for x in range(3))
-
-
-# same as above but backwards
-def new_combinations(word):
-    for i, j, k in zip(word[-1:], word[-2:], word[-3:]):
-        print(k + j + i)
-
 
 # fill letters dict
 def letters_counter(char):
