@@ -1,7 +1,6 @@
 # OdooTestTask
-4 tasks
 
-4 Виконаних тестових завдання завдання:
+Python 3
 
 Завдання 1:
  - OddOrEven.py
@@ -11,3 +10,7 @@
   - Sequence_helpers.py
 
 Завдання 3:
+ - Tickets.py
+
+Завдання 4:
+ -
