@@ -1,6 +1,6 @@
 import random
 import string
-from Sequence_helpers import *
+from sequence_helpers import *
 
 million_sting = ""
 condition_flag = True
