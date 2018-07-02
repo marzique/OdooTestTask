@@ -1,23 +1,42 @@
 import random
 import string
 
-letters = {}
+letters = {"a": 1, "b": 2}
 pairs = {}
 triples = {}
 mill_sting = ""
 
 
-# get random 3 chars in string
+# get random 3 lowercase letters as a string
 def random_triple():
     return ''.join(random.choice(string.ascii_lowercase) for x in range(3))
 
-mill_sting = random_triple() + random_triple() + random_triple() + random_triple()
 
-# for letter in mill_sting:
-#     if letter
+# loop through each 3 letters with 1 letter shift
+def scan_loop(s):
+    for i, j, k in zip(s[0:], s[1:], s[2:]):
+        print(i + j + k)
 
-print(mill_sting)
 
-#
-for i,j,k in zip(mill_sting[0:], mill_sting[1:], mill_sting[2:]):
-    print(i,j,k)
+def letters_counter(char):
+    if char in letters:
+        letters[char] += 1
+        print(letters[char])
+    else:
+        letters[char] = 1
+        print(char + " added to dict")
+
+
+def pairs_counter(pair):
+    if pair in pairs:
+        pairs[pair] += 1
+    else:
+        pairs[pair] = 1
+
+
+def triples_counter(triple):
+    if triple in triples:
+        triples[triple] += 1
+    else:
+        triples[triple] = 1
+
