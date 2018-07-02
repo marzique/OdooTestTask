@@ -3,9 +3,9 @@ import string
 from Sequence_helpers import *
 
 million_sting = ""
-flag = True
+condition_flag = True
 
-while flag:
+while condition_flag:
 
     # 1,000,000
     million_sting += ''.join(random.choice(string.ascii_lowercase) for _ in range(1000000))
@@ -18,7 +18,7 @@ while flag:
     # check for hypothetical situation of exceeding the limits
     if max(letters.values()) <= 40000 and max(pairs.values()) <= 2000 and max(triples.values()) <= 100 :
 
-        flag = False
+        condition_flag = False
         print(million_sting)
         print("The most frequent letter occured "  + str(max(letters.values())) + " times")
         print("The most frequent pair occured "  + str(max(pairs.values())) + " times")
