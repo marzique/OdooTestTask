@@ -14,12 +14,31 @@ def parse_settings(config_file):
 
     return config_settings
 
+# move filename from /Files to /Transfer
+def move(filename):
+    pass
+
+# copies filename from /Files to /Transfer
+def copy(filename):
+    pass
+
+# deletes filename
+def delete(filname):
+    pass
 
 def file_action(filename):
-    print(filename)
+    for extension in config_settings:
+        if filename.endswith('.' + extension):
+            action = config_settings[extension]
+            if action == "move":
+                move(filename)
+            elif action == "copy":
+                copy(filename)
+            elif action == "delete":
+                delete(filename)
+
 
 config_settings = parse_settings('config.ini')
-print(config_settings)
 
 # go to desired directory
 cwd = os.getcwd() + "/Files"
