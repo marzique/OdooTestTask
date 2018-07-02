@@ -14,10 +14,12 @@ def parse_settings(config_file):
 
     return config_settings
 
+
 def file_action(filename):
     print(filename)
 
 config_settings = parse_settings('config.ini')
+print(config_settings)
 
 # go to desired directory
 cwd = os.getcwd() + "/Files"
