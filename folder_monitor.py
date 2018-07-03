@@ -18,14 +18,20 @@ def parse_settings(config_file):
 # move filename from /Files to /Transfer
 def move_file(filename):
     move(cwd + "/" + filename, transfer_folder + "/" + filename)
+    print(filename, "moved")
 
 # copies filename from /Files to /Transfer (overwrites if file already exists in /Transfer)
 def copy_file(filename):
+    if not os.path.exists(transfer_folder + "/" + filename):
+        print(filename, "copied")
     copyfile(cwd + "/" + filename, transfer_folder + "/" + filename)
+
+
 
 # deletes filename
 def delete_file(filname):
     os.remove(filename)
+    print(filename, "deleted")
 
 # compares file extension with needed action from dict and calls move/copy/delete func
 def file_action(filename):
@@ -34,16 +40,12 @@ def file_action(filename):
             action = config_settings[extension]
             if action == "move":
                 move_file(filename)
-                print(filename, "moved")
 
             elif action == "copy":
                 copy_file(filename)
-                print(filename, "copied")
 
             elif action == "delete":
                 delete_file(filename)
-                print(filename, "deleted")
-
 
 
 config_settings = parse_settings('config.ini')
