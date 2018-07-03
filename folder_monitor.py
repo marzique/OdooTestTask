@@ -3,7 +3,7 @@ from shutil import copyfile, move
 import os
 import configparser
 
-# parse cfg
+# parse cfg from file
 def parse_settings(config_file):
     config_settings = {}
     # parse config file settings
@@ -19,7 +19,7 @@ def parse_settings(config_file):
 def move_file(filename):
     move(cwd + "/" + filename, transfer_folder + "/" + filename)
 
-# copies filename from /Files to /Transfer
+# copies filename from /Files to /Transfer (overwrites if file already exists in /Transfer)
 def copy_file(filename):
     copyfile(cwd + "/" + filename, transfer_folder + "/" + filename)
 
@@ -63,6 +63,7 @@ while True:
     for filename in filenames:
         file_action(filename)
     try:
+        # 1 sec
         sleep(1)
     except:
         # manual shutdown
