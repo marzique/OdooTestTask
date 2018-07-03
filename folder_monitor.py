@@ -1,8 +1,9 @@
 from time import sleep
+from shutil import copyfile, move
 import os
 import configparser
 
-#
+# parse cfg
 def parse_settings(config_file):
     config_settings = {}
     # parse config file settings
@@ -15,33 +16,41 @@ def parse_settings(config_file):
     return config_settings
 
 # move filename from /Files to /Transfer
-def move(filename):
-    pass
+def move_file(filename):
+    move(cwd + "/" + filename, transfer_folder + "/" + filename)
 
 # copies filename from /Files to /Transfer
-def copy(filename):
-    pass
+def copy_file(filename):
+    copyfile(cwd + "/" + filename, transfer_folder + "/" + filename)
 
 # deletes filename
-def delete(filname):
-    pass
+def delete_file(filname):
+    os.remove(filename)
 
 def file_action(filename):
     for extension in config_settings:
         if filename.endswith('.' + extension):
             action = config_settings[extension]
             if action == "move":
-                move(filename)
+                move_file(filename)
+                print(filename, "moved")
+
             elif action == "copy":
-                copy(filename)
+                copy_file(filename)
+                print(filename, "copied")
+
             elif action == "delete":
-                delete(filename)
+                delete_file(filename)
+                print(filename, "deleted")
 
 
 config_settings = parse_settings('config.ini')
 
 # go to desired directory
 cwd = os.getcwd() + "/Files"
+
+# where we copy/move files
+transfer_folder = os.getcwd() + "/Transfer"
 os.chdir(cwd)
 
 
