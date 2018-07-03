@@ -33,7 +33,7 @@ def scan_loop_triples(s):
         triples_counter(i + j + k)
 
 
-# loop through each 3 letters with 1 letter shift
+# loop through each 2 letters with 1 letter shift
 def scan_loop_pairs(s):
     for x, y in zip(s[0:], s[1:]):
         pairs_counter(x + y)
