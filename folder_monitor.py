@@ -27,6 +27,7 @@ def copy_file(filename):
 def delete_file(filname):
     os.remove(filename)
 
+# compares file extension with needed action from dict and calls move/copy/delete func
 def file_action(filename):
     for extension in config_settings:
         if filename.endswith('.' + extension):
@@ -44,6 +45,7 @@ def file_action(filename):
                 print(filename, "deleted")
 
 
+
 config_settings = parse_settings('config.ini')
 
 # go to desired directory
@@ -54,6 +56,7 @@ transfer_folder = os.getcwd() + "/Transfer"
 os.chdir(cwd)
 
 
+print("==" * 10  + "monitoring starts" + "==" * 10)
 # check folder each second
 while True:
     filenames = os.listdir()
